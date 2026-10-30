@@ -1,0 +1,12 @@
+{
+  "name": "Slither Drift",
+  "short_name": "Slither",
+  "description": "Offline browser snake arena game",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071827",
+  "theme_color": "#0c1427",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c1427" />
+    <meta name="description" content="Slither Drift — offline browser snake arena game." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <title>Slither Drift</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="menuOverlay" class="overlay active">
+      <div class="panel main-panel">
+        <div class="brand-wrap">
+          <div class="brand-mark">S</div>
+          <div>
+            <p class="eyebrow">ARCADE ARENA</p>
+            <h1>Slither Drift</h1>
+          </div>
+        </div>
+
+        <label class="field">
+          <span>Player name</span>
+          <input id="playerNameInput" type="text" maxlength="16" value="Player" />
+        </label>
+
+        <div class="button-grid">
+          <button id="playOfflineBtn" class="primary">Play</button>
+          <button id="playLocalBtn" class="secondary">Offline</button>
+          <button id="onlineBtn" class="secondary disabled" disabled>Online</button>
+          <button id="skinsBtn" class="secondary">Skins</button>
+          <button id="settingsBtn" class="secondary">Settings</button>
+        </div>
+
+        <div class="stats-row">
+          <div><span>Best</span><strong id="bestScoreValue">0</strong></div>
+          <div><span>Matches</span><strong id="matchCountValue">0</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settingsOverlay" class="overlay hidden">
+      <div class="panel settings-panel">
+        <div class="panel-header">
+          <h2>Settings</h2>
+          <button id="closeSettingsBtn" class="close-btn">×</button>
+        </div>
+
+        <div class="settings-grid">
+          <label><span>Sound</span><input id="soundSetting" type="range" min="0" max="100" step="1" value="80" /></label>
+          <label><span>Music</span><input id="musicSetting" type="range" min="0" max="100" step="1" value="60" /></label>
+          <label><span>Graphics</span><select id="graphicsSetting"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+          <label><span>Mouse Sensitivity</span><input id="sensitivitySetting" type="range" min="30" max="200" step="5" value="100" /></label>
+          <label><span>Touch Size</span><input id="touchSizeSetting" type="range" min="60" max="160" step="5" value="100" /></label>
+          <label><span>Language</span><select id="languageSetting"><option value="en" selected>English</option><option value="ar">العربية</option></select></label>
+          <label><span>Controls</span><select id="controlsSetting"><option value="mouse" selected>Mouse</option><option value="keyboard">Keyboard</option><option value="mixed">Mixed</option></select></label>
+        </div>
+      </div>
+    </div>
+
+    <div id="hud" class="hud hidden">
+      <div class="hud-left">
+        <div class="hud-card"><span>Score</span><strong id="hudScore">0</strong></div>
+        <div class="hud-card"><span>Size</span><strong id="hudSize">0</strong></div>
+        <div class="hud-card"><span>Rank</span><strong id="hudRank">#1</strong></div>
+      </div>
+      <div class="hud-right">
+        <div class="hud-card"><span>Boost</span><strong id="hudBoost">100%</strong></div>
+        <button id="pauseBtn" class="mini-btn">Pause</button>
+      </div>
+    </div>
+
+    <div id="leaderboard" class="leaderboard hidden">
+      <h3>Top 10</h3>
+      <ol id="leaderboardList"></ol>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay hidden">
+      <div class="panel game-over-panel">
+        <h2>Round Over</h2>
+        <div class="game-over-stats">
+          <div><span>Final Score</span><strong id="finalScoreValue">0</strong></div>
+          <div><span>Best</span><strong id="finalBestValue">0</strong></div>
+          <div><span>Rank</span><strong id="finalRankValue">#1</strong></div>
+          <div><span>Duration</span><strong id="finalTimeValue">00:00</strong></div>
+          <div><span>Eliminations</span><strong id="finalKillsValue">0</strong></div>
+        </div>
+        <div class="button-grid compact">
+          <button id="playAgainBtn" class="primary">Play Again</button>
+          <button id="mainMenuBtn" class="secondary">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
